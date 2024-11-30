@@ -1,1 +1,107 @@
-<h1>Inicio</h1>
+<div class="container py-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-header bg-gradient-primary text-white d-flex justify-content-between align-items-center">
+      <h3 class="fw-bold mb-0">Cadastro de Usuários</h3>
+      <button class="btn btn-outline-light fw-bold px-4 py-2" (click)="openModal()">Novo</button>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th class="text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users" class="animate-row">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone || '(Não informado)' }}</td>
+            <td class="text-center">
+              <button
+                class="btn btn-danger btn-sm fw-bold me-2"
+                (click)="deleteUser(user.id)"
+              >
+                <i class="fas fa-trash-alt"></i> Deletar
+              </button>
+              <button
+                class="btn btn-primary btn-sm fw-bold"
+                (click)="editUser(user)"
+              >
+                <i class="fas fa-edit"></i> Editar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="userModal"
+    tabindex="-1"
+    aria-labelledby="modalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow">
+        <div class="modal-header bg-gradient-primary text-white">
+          <h5 class="modal-title fw-bold" id="modalLabel">{{ isEditing ? 'Editar Usuário' : 'Novo Usuário' }}</h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            aria-label="Close"
+            (click)="closeModal()"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-4">
+              <label for="userName" class="form-label fw-bold">Nome</label>
+              <input
+                id="userName"
+                type="text"
+                class="form-control"
+                [(ngModel)]="newUser.name"
+                placeholder="Digite o nome"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="userEmail" class="form-label fw-bold">Email</label>
+              <input
+                id="userEmail"
+                type="email"
+                class="form-control"
+                [(ngModel)]="newUser.email"
+                placeholder="Digite o email"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="userPhone" class="form-label fw-bold">Telefone</label>
+              <input
+                id="userPhone"
+                type="text"
+                class="form-control"
+                [(ngModel)]="newUser.phone"
+                placeholder="Digite o telefone"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-secondary" (click)="closeModal()">Cancelar</button>
+          <button
+            class="btn btn-success fw-bold"
+            (click)="isEditing ? updateUser() : createUser()"
+          >
+            {{ isEditing ? 'Atualizar' : 'Criar' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

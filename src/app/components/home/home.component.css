@@ -1,0 +1,164 @@
+/* Geral */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container principal */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Card */
+  .card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header do card */
+  .card-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 16px 20px;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+  }
+  
+  /* Botão "Novo" */
+  .btn-light {
+    font-weight: bold;
+    color: #0056b3;
+    border: 1px solid #dee2e6;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-light:hover {
+    color: #ffffff;
+    background-color: #0056b3;
+    transform: scale(1.1);
+  }
+  
+  /* Tabela */
+  .table {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .table th {
+    text-align: center;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #e9f7fa;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Animação de linhas */
+  .animate-row {
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Botões de ações */
+  .btn-danger {
+    background-color: #dc3545;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    font-weight: bold;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+  }
+  
+  /* Modal */
+  .modal-content {
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .modal-header {
+    font-size: 1.2rem;
+    border-bottom: none;
+    padding: 16px 20px;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+  }
+  
+  .modal-footer {
+    border-top: none;
+    padding: 16px 20px;
+  }
+  
+  /* Input */
+  .form-control {
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Animação de entrada */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .card {
+      margin: 10px;
+    }
+  
+    .table {
+      font-size: 0.9rem;
+    }
+  
+    .btn {
+      padding: 6px 10px;
+    }
+  }
+  
